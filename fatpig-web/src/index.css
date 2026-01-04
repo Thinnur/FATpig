@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sat: env(safe-area-inset-top);
+  --sab: env(safe-area-inset-bottom);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overflow: hidden;
+  width: 100%;
+  /* FIX: Background untuk safe area - hindari area putih di atas */
+  background-color: #000000;
+}
+
+/* Light mode background */
+html:not(.dark) body {
+  background-color: #f2f2f7;
+}
+
+/* Dark mode background */
+html.dark body {
+  background-color: #000000;
+}
+
+#root {
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-top: var(--sat);
+  padding-bottom: var(--sab);
+}
